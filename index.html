@@ -1,2 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt Generator Offline</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- PWA manifest -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#38bdf8">
+</head>
+<body>
+
+<div class="box">
+<h1>🪵 PROMPT GENERATOR OFFLINE</h1>
+
+<label>Ekspresi Karakter</label>
+<select id="ekspresi">
+<option>Tenang dan datar</option>
+<option>Bahagia</option>
+<option>Marah</option>
+<option>Takut</option>
+</select>
+
+<label>Waktu</label>
+<select id="waktu">
+<option>Sore menjelang senja</option>
+<option>Pagi</option>
+<option>Siang</option>
+<option>Malam</option>
+</select>
+
+<label>Cuaca</label>
+<select id="cuaca">
+<option>Udara lembap dengan kabut tipis</option>
+<option>Cerah</option>
+<option>Hujan</option>
+<option>Berkabut</option>
+</select>
+
+<label>Suasana</label>
+<select id="suasana">
+<option>Sunyi dan tenang</option>
+<option>Menegangkan</option>
+<option>Epik</option>
+<option>Misterius</option>
+</select>
+
+<label>Jenis Shot Kamera</label>
+<select id="shot">
+<option>Tracking shot samping</option>
+<option>Close-up cinematic</option>
+<option>Wide shot</option>
+</select>
+
+<label>Sudut Kamera</label>
+<select id="sudut">
+<option>Perspektif samping</option>
+<option>Eye level</option>
+<option>High angle</option>
+</select>
+
+<label>Gerakan Kamera</label>
+<select id="gerakCam">
+<option>Cinematic glide halus</option>
+<option>Static</option>
+<option>Pan</option>
+</select>
+
+<label>Kedalaman Fokus</label>
+<select id="focus">
+<option>Shallow depth of field</option>
+<option>Deep focus</option>
+<option>Selective focus</option>
+</select>
+
+<label>Pencahayaan</label>
+<select id="lighting">
+<option>Dramatic lighting lembut alami</option>
+<option>Soft natural</option>
+<option>High contrast</option>
+</select>
+
+<label>Tone Warna</label>
+<select id="tone">
+<option>Coklat hangat natural</option>
+<option>Warm</option>
+<option>Cold</option>
+</select>
+
+<label>Gaya Visual</label>
+<select id="style">
+<option>Ultra realistis sinematik</option>
+<option>Anime</option>
+<option>Dark fantasy</option>
+</select>
+
+<hr>
+
+<button onclick="generatePrompt()">Generate Prompt</button>
+<button onclick="randomPrompt()">Random All</button>
+<textarea id="output" placeholder="Prompt akan muncul di sini..."></textarea>
+<button onclick="copyAll()">Copy All</button>
+</div>
+
+<!-- Service worker untuk offline -->
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(registration => { console.log('ServiceWorker registered:', registration); })
+      .catch(err => { console.log('SW failed:', err); });
+  });
+}
+</script>
+
+<script src="app.js"></script>
+</body>
+</html>
