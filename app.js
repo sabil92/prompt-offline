@@ -76,3 +76,8 @@ function randomPrompt(){
   });
   generatePrompt();
 }
+
+// generate prompt otomatis saat halaman load
+window.onload = function(){
+    generatePrompt();
+};
