@@ -1,0 +1,1 @@
+Script generate & random prompt
